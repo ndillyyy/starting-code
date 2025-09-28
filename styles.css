@@ -39,6 +39,133 @@ body {
   padding: 20px;
 }
 
+  .card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+.card img {
+  width: 100%;
+  display: block;
+}
+.card-content {
+  padding: 1rem;
+  color: var(--text-color);
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+.btn-primary { background: var(--primary); color: var(--white); }
+.btn-success { background: var(--success); color: var(--white); }
+.btn-warning { background: var(--warning); color: var(--white); }
+.btn-info { background: var(--info); color: var(--white); }
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+.btn-outline:hover { background: var(--primary); color: var(--white); }
+
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  background: var(--light-gray);
+  border-radius: 9999px;
+  padding: 0.4rem 0.8rem;
+  margin: 0.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.chip.active { background: var(--primary); color: var(--white); }
+.chip .close { margin-left: 0.5rem; cursor: pointer; }
+.navbar {
+  display: flex;
+  gap: 1rem;
+  background: var(--white);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.nav-item {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+.nav-item:hover { color: var(--primary); }
+.nav-item.active {
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary);
+}
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+input, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+input:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(67,97,238,0.2);
+}
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .navbar { flex-direction: column; }
+}
+[data-theme="dark"] {
+  --body-bg: #121212;
+  --card-bg: #1e1e1e;
+  --text-color: #f8f9fa;
+  --border-color: #333;
+}
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+.btn:active::after {
+  width: 200%;
+  height: 200%;
+}
+.btn-outline-success {
+  border: 2px solid var(--success);
+  color: var(--success);
+  background: transparent;
+}
+.btn-outline-success:hover {
+  background: var(--success);
+  color: var(--white);
+}
+
 header {
   text-align: center;
   margin-bottom: 40px;
@@ -80,6 +207,7 @@ p {
   gap: 20px;
   margin-top: 20px;
 }
+
 
 /* ========== IMPLEMENT THE STYLES BELOW ========== */
 
